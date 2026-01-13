@@ -10,63 +10,26 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  min-height: 100vh;
-  overflow: hidden;
-  color: #111827;
   background: #ffffff;
-}
-
-.flag-bg {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.12;
-}
-
-.column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  font-size: 18px;
-  animation: floatUp 40s linear infinite;
-}
-
-.column.down {
-  animation: floatDown 45s linear infinite;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-50%); }
-}
-
-@keyframes floatDown {
-  from { transform: translateY(-50%); }
-  to { transform: translateY(0); }
-}
-
-.wrap {
-  position: relative;
-  z-index: 1;
+  color: #111827;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 24px;
+  position: relative;
+  overflow: hidden;
 }
 
-.inner {
+main {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 24px;
   max-width: 420px;
-  width: 100%;
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 500;
@@ -74,7 +37,7 @@ h1 {
 }
 
 .arabic {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: #4b5563;
   margin-bottom: 22px;
   direction: rtl;
@@ -83,7 +46,7 @@ h1 {
 .dots {
   display: inline-flex;
   gap: 8px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .dot {
@@ -103,75 +66,105 @@ h1 {
   40% { transform: translateY(-6px); opacity: 1; }
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 28px;
-}
-
 nav a {
-  text-decoration: none;
+  display: block;
+  margin-top: 12px;
+  font-size: 0.95rem;
   color: #111827;
+  text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
 }
 
 .social {
+  margin-top: 22px;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  font-size: 0.85rem;
+  gap: 16px;
 }
 
 .social a {
-  color: #111827;
   text-decoration: none;
+  color: #111827;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* FLAG BACKGROUND */
+
+.flag-bg {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.12;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  font-size: 18px;
+  animation: floatUp 45s linear infinite;
+}
+
+.column.down {
+  animation: floatDown 50s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes floatDown {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND FLAGS -->
 <div class="flag-bg">
   <div class="column">
-    🇪🇬 🇪🇬 🇩🇪 🇪🇬 🇩🇪 🇪🇬 🇩🇪
+    🇪🇬 🇸🇦 🇦🇪 🇯🇴 🇵🇸 🇱🇧 🇸🇾 🇮🇶 🇩🇪 🇰🇼 🇶🇦 🇧🇭 🇴🇲 🇾🇪 🇲🇦 🇩🇿
   </div>
   <div class="column down">
-    🇸🇦 🇩🇪 🇸🇦 🇩🇪 🇸🇦 🇩🇪
+    🇹🇳 🇱🇾 🇸🇩 🇲🇷 🇸🇴 🇩🇪 🇩🇯 🇰🇲 🇪🇬 🇸🇦 🇦🇪 🇩🇪
   </div>
   <div class="column">
-    🇦🇪 🇦🇪 🇩🇪 🇦🇪 🇩🇪
+    🇱🇧 🇸🇾 🇮🇶 🇰🇼 🇶🇦 🇧🇭 🇩🇪 🇴🇲 🇾🇪 🇲🇦 🇩🇿 🇹🇳
   </div>
   <div class="column down">
-    🇯🇴 🇩🇪 🇯🇴 🇩🇪 🇯🇴
+    🇸🇩 🇲🇷 🇸🇴 🇩🇯 🇰🇲 🇩🇪 🇪🇬 🇸🇦 🇦🇪 🇯🇴 🇵🇸
   </div>
 </div>
 
-<!-- CONTENT -->
-<div class="wrap">
-  <div class="inner">
-    <h1>Coming Soon</h1>
-    <div class="arabic">دليلك لألمانيا</div>
+<main>
+  <h1>Ask Samer</h1>
+  <div class="arabic">دليلك لألمانيا</div>
 
-    <div class="dots">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-    </div>
-
-    <nav>
-      <a href="/book">Book a Call</a>
-      <a href="/links">Links</a>
-    </nav>
-
-    <div class="social">
-      <a href="https://instagram.com/asksamer.de" target="_blank">@asksamer.de</a>
-      <a href="https://tiktok.com/@asksamer.de" target="_blank">@asksamer.de</a>
-    </div>
+  <div class="dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
   </div>
-</div>
+
+  <nav>
+    <a href="book.html">Book a Call</a>
+    <a href="links.html">Links & Resources</a>
+  </nav>
+
+  <div class="social">
+    <a href="https://instagram.com/asksamer.de" target="_blank">📸 @asksamer.de</a>
+    <a href="https://tiktok.com/@asksamer.de" target="_blank">🎵 @asksamer.de</a>
+  </div>
+</main>
 
 </body>
 </html>
