@@ -1,12 +1,13 @@
-<!-- reset pages deployment -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ask Samer – Coming Soon</title>
+  <title>Ask Samer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
       background: #ffffff;
@@ -16,28 +17,35 @@
       align-items: center;
       justify-content: center;
     }
+
     .wrap {
       text-align: center;
       padding: 24px;
+      max-width: 420px;
+      width: 100%;
     }
+
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-weight: 500;
       margin-bottom: 10px;
     }
+
     .arabic {
       font-size: 1.05rem;
       color: #4b5563;
       margin-bottom: 22px;
       direction: rtl;
-      unicode-bidi: bidi-override;
     }
+
     .dots {
       display: inline-flex;
       gap: 8px;
+      margin-bottom: 28px;
     }
+
     .dot {
       width: 8px;
       height: 8px;
@@ -46,6 +54,7 @@
       opacity: 0.4;
       animation: bounce 1.2s infinite ease-in-out;
     }
+
     .dot:nth-child(2) { animation-delay: 0.15s; }
     .dot:nth-child(3) { animation-delay: 0.3s; }
 
@@ -54,34 +63,77 @@
       40% { transform: translateY(-6px); opacity: 1; }
     }
 
-    .tagline {
-      margin-top: 24px;
-      font-size: 0.9rem;
-      color: #6b7280;
+    nav {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 28px;
     }
-    .tagline span {
+
+    nav a {
+      font-size: 0.9rem;
       color: #111827;
+      text-decoration: none;
       font-weight: 500;
     }
-</style>
+
+    .social {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .social a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: #111827;
+      text-decoration: none;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  </style>
 </head>
+
 <body>
   <main class="wrap">
     <h1>Coming Soon</h1>
     <div class="arabic">دليلك لألمانيا</div>
+
     <div class="dots">
       <div class="dot"></div>
       <div class="dot"></div>
       <div class="dot"></div>
-      <a href="/book" style="font-size:0.9rem; color:#111827; text-decoration:none;">Book a Call</a>
-      <a href="/links" style="font-size:0.9rem; color:#111827; text-decoration:none;">Links</a>
-      <nav style="margin-top:32px; display:flex; gap:16px; justify-content:center;">
-  
-</nav>
-
     </div>
-    <div class="tagline">
-      Instagram & TikTok: <span>@asksamer.de</span>
+
+    <nav>
+      <a href="/book">Book a Call</a>
+      <a href="/links">Links</a>
+    </nav>
+
+    <div class="social">
+      <a href="https://www.instagram.com/asksamer.de" target="_blank">
+        <!-- Instagram icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="1" />
+        </svg>
+        @asksamer.de
+      </a>
+
+      <a href="https://www.tiktok.com/@asksamer.de" target="_blank">
+        <!-- TikTok icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 3c.3 1.7 1.5 3 3 3v3c-1.5 0-2.8-.5-4-1.4V15a5 5 0 1 1-5-5v3a2 2 0 1 0 2 2V3h4z"/>
+        </svg>
+        @asksamer.de
+      </a>
     </div>
   </main>
 </body>
