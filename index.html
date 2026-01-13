@@ -1,38 +1,80 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ask Samer</title>
+  <title>Ask Samer – Coming Soon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: #ffffff;
+      color: #111827;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wrap {
+      text-align: center;
+      padding: 24px;
+    }
+    h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .arabic {
+      font-size: 1.05rem;
+      color: #4b5563;
+      margin-bottom: 22px;
+      direction: rtl;
+      unicode-bidi: bidi-override;
+    }
+    .dots {
+      display: inline-flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #9ca3af;
+      opacity: 0.4;
+      animation: bounce 1.2s infinite ease-in-out;
+    }
+    .dot:nth-child(2) { animation-delay: 0.15s; }
+    .dot:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.3; }
+      40% { transform: translateY(-6px); opacity: 1; }
+    }
+
+    .tagline {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+    .tagline span {
+      color: #111827;
+      font-weight: 500;
+    }
+</style>
 </head>
-
-<body style="background:#ffffff; color:#111827;">
-  <nav>
-    <a href="/">AskSamer</a>
-    <a href="/book">احجز مكالمة</a>
-  </nav>
-
+<body>
   <main class="wrap">
-    <h1>Ask Samer</h1>
-
-    <div class="arabic">
-      عايز تدرس أو تعيش في ألمانيا؟<br>
-      اسأل سامر قبل ما تضيع وقتك وفلوسك.
-    </div>
-
+    <h1>Coming Soon</h1>
+    <div class="arabic">دليلك لألمانيا</div>
     <div class="dots">
-      <div class="dot" style="background:#111827;"></div>
-      <div class="dot" style="background:#111827;"></div>
-      <div class="dot" style="background:#111827;"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
-
-    <a href="/book" class="cta" style="background:#111827; color:#ffffff;">
-      احجز مكالمة الآن
-    </a>
-
-    <div class="footer">
-      Instagram & TikTok: @asksamer.de
+    <div class="tagline">
+      Instagram & TikTok: <span>@asksamer.de</span>
     </div>
   </main>
 </body>
