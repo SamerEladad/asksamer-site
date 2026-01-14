@@ -4,157 +4,10 @@
 <meta charset="UTF-8" />
 <title>Links | Ask Samer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  background: #f9fafb;
-  color: #111827;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-/* FLAG BACKGROUND - VERTICAL COLUMNS */
-.flag-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.flag-column {
-  display: flex;
-  flex-direction: column;
-  font-size: 24px;
-  line-height: 2.2;
-  opacity: 0.10;
-  white-space: nowrap;
-}
-
-.flag-column.up {
-  animation: scrollUp 40s linear infinite;
-}
-
-.flag-column.down {
-  animation: scrollDown 40s linear infinite;
-}
-
-@keyframes scrollUp {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-
-@keyframes scrollDown {
-  0% { transform: translateY(-50%); }
-  100% { transform: translateY(0); }
-}
-
-/* CONTENT */
-main {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 32px;
-  max-width: 420px;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 16px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-}
-
-h1 {
-  font-size: 2.2rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.arabic {
-  font-size: 1.1rem;
-  color: #4b5563;
-  margin-bottom: 28px;
-  direction: rtl;
-}
-
-/* NAV */
-nav a {
-  display: inline-block;
-  margin-top: 16px;
-  font-size: 0.95rem;
-  color: #111827;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 12px 24px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  transition: background 0.2s;
-}
-
-nav a:hover {
-  background: #e5e7eb;
-}
-
-/* SOCIAL */
-.social {
-  margin-top: 28px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.social a {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  color: #111827;
-  font-size: 0.9rem;
-}
-
-.social a:hover {
-  opacity: 0.7;
-}
-
-/* CONTACT + DISCLAIMER */
-.contact {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid #e5e7eb;
-  font-size: 0.9rem;
-  color: #374151;
-}
-
-.contact a {
-  color: #111827;
-  text-decoration: underline;
-  font-weight: 500;
-}
-
-.disclaimer {
-  margin-top: 16px;
-  font-size: 0.75rem;
-  color: #9ca3af;
-  line-height: 1.4;
-}
-
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="links">
 
-<!-- BACKGROUND FLAGS - 8 COLUMNS ALTERNATING UP/DOWN -->
 <div class="flag-bg">
   <div class="flag-column up">
     🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇩🇪<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>
@@ -210,16 +63,15 @@ nav a:hover {
   </div>
 
   <div class="contact">
-    Questions? Reach out directly at <a href="mailto:contact@asksamer.de">contact@asksamer.de</a>
+    Questions? Reach out at <a href="mailto:contact@asksamer.de">contact@asksamer.de</a>
   </div>
 
   <div class="disclaimer">
-    I am not a licensed Studienberater or immigration advisor. All guidance is based on my personal experience and should not be considered professional advice.
+    Not a licensed immigration advisor. All guidance is based on personal experience.
   </div>
 
   <div class="footer-links">
-    <a href="privacy.html">Privacy Policy</a> · 
-    <a href="impressum.html">Impressum</a>
+    <a href="privacy.html">Privacy Policy</a>
   </div>
 </main>
 
