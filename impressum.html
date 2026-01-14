@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Impressum | Ask Samer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  background: #fafafa;
+  color: #111827;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  position: relative;
+  padding: 40px 20px;
+}
+
+/* FLAG BACKGROUND - VERTICAL COLUMNS */
+.flag-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.flag-column {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  line-height: 2.2;
+  opacity: 0.08;
+  white-space: nowrap;
+}
+
+.flag-column.up {
+  animation: scrollUp 40s linear infinite;
+}
+
+.flag-column.down {
+  animation: scrollDown 40s linear infinite;
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+/* CONTENT */
+main {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.arabic {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 24px;
+  direction: rtl;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: #374151;
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+a {
+  color: #111827;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 10px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.back-link:hover {
+  background: #f3f4f6;
+}
+
+.placeholder {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 12px;
+  margin: 20px 0;
+  font-size: 0.9rem;
+  color: #92400e;
+}
+</style>
+</head>
+<body>
+
+<!-- BACKGROUND FLAGS - 8 COLUMNS ALTERNATING UP/DOWN -->
+<div class="flag-bg">
+  <div class="flag-column up">
+    🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇩🇪<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>
+    🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇩🇪<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>
+  </div>
+  <div class="flag-column down">
+    🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>
+    🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>
+  </div>
+  <div class="flag-column up">
+    🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>
+    🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>
+  </div>
+  <div class="flag-column down">
+    🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>
+    🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>
+  </div>
+  <div class="flag-column up">
+    🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>
+    🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>
+  </div>
+  <div class="flag-column down">
+    🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>
+    🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>🇸🇦<br>🇦🇪<br>🇯🇴<br>
+  </div>
+  <div class="flag-column up">
+    🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>
+    🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇯<br>🇰🇲<br>🇩🇪<br>🇪🇬<br>
+  </div>
+  <div class="flag-column down">
+    🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇪<br>
+    🇸🇦<br>🇦🇪<br>🇯🇴<br>🇵🇸<br>🇱🇧<br>🇸🇾<br>🇮🇶<br>🇰🇼<br>🇶🇦<br>🇧🇭<br>🇴🇲<br>🇾🇪<br>🇲🇦<br>🇩🇿<br>🇹🇳<br>🇱🇾<br>🇸🇩<br>🇲🇷<br>🇸🇴<br>🇩🇪<br>
+  </div>
+</div>
+
+<main>
+  <h1>Impressum</h1>
+  <div class="arabic">البيانات القانونية</div>
+
+  <div class="placeholder">
+    ⚠️ <strong>Important:</strong> Replace the placeholder text below with your actual legal information before going live.
+  </div>
+
+  <h2>Information according to § 5 TMG</h2>
+  <p>
+    <strong>[Your Full Legal Name]</strong><br>
+    [Your Street Address]<br>
+    [Postal Code] [City]<br>
+    Germany
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Email: <a href="mailto:contact@asksamer.de">contact@asksamer.de</a><br>
+    Phone: [Your Phone Number - Optional]
+  </p>
+
+  <h2>VAT ID</h2>
+  <p>
+    VAT identification number according to § 27a UStG:<br>
+    [Your VAT ID / Steuernummer - add after registration]
+  </p>
+
+  <h2>Professional Information</h2>
+  <p>
+    <strong>Note:</strong> Ask Samer is operated as an individual (Einzelunternehmen). We provide personal guidance based on experience and do not offer licensed Studienberatung or immigration consulting services.
+  </p>
+
+  <h2>Responsible for Content</h2>
+  <p>
+    Responsible for content according to § 55 Abs. 2 RStV:<br>
+    [Your Full Legal Name]<br>
+    [Your Address]
+  </p>
+
+  <h2>Dispute Resolution</h2>
+  <p>
+    The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a>.<br>
+    We are not obliged or willing to participate in dispute resolution proceedings before a consumer arbitration board.
+  </p>
+
+  <h2>Liability for Content</h2>
+  <p>
+    As a service provider, we are responsible for our own content on these pages according to § 7 Abs.1 TMG under general law. However, according to §§ 8 to 10 TMG, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+  </p>
+
+  <a href="index.html" class="back-link">← Back to Home</a>
+</main>
+
+</body>
+</html>
