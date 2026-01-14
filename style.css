@@ -10,7 +10,6 @@ body {
   justify-content: center;
   position: relative;
   padding: 20px;
-  overflow: hidden;
 
 }
 
@@ -230,7 +229,7 @@ nav a:hover {
   padding: 10px 20px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  text-decoration: none;
+  text-decoration: none !important;
   font-size: 0.9rem;
   transition: background 0.2s;
   color: #111827;
