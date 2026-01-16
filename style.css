@@ -1,5 +1,9 @@
 /* GLOBAL RESET */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
@@ -10,7 +14,6 @@ body {
   justify-content: center;
   position: relative;
   padding: 20px;
-
 }
 
 /* FLAG BACKGROUND - VERTICAL COLUMNS */
@@ -82,6 +85,28 @@ h1 {
   color: #4b5563;
   margin-bottom: 22px;
   direction: rtl;
+}
+
+/* BOOK PAGE INTRO & CALENDLY */
+.book-intro {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.calendly-wrapper {
+  margin-top: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.book-fallback {
+  margin-top: 12px;
+  text-align: left;
 }
 
 /* DOTS ANIMATION */
@@ -233,7 +258,6 @@ nav a:hover {
   font-size: 0.9rem;
   transition: background 0.2s;
   color: #111827;
-  
 }
 
 .back-link:hover {
@@ -252,3 +276,22 @@ body.home { background: #ffffff; }
 body.book { background: #f3f4f6; }
 body.links { background: #f9fafb; }
 body.legal { background: #fafafa; }
+
+/* Layout tweaks for non-home pages: content starts higher up */
+body.book,
+body.links,
+body.legal {
+  align-items: flex-start;
+  padding-top: 32px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  main {
+    padding: 24px 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}

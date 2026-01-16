@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Calendly inline widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body class="book">
 
@@ -46,7 +50,26 @@
 
 <main>
   <h1>Book a Call</h1>
-  <div class="arabic">قريباً جداً</div>
+  <div class="arabic">جلسة واحدة لتنظيم خطتك لألمانيا</div>
+
+  <p class="book-intro">
+    A focused 1:1 call to bring clarity, structure, and realistic next steps to your Germany plan.
+  </p>
+
+  <div class="calendly-wrapper">
+    <div
+      class="calendly-inline-widget"
+      data-url="https://calendly.com/asksamer/intro-call?hide_gdpr_banner=1"
+      style="min-width:320px;height:650px;"
+    ></div>
+  </div>
+
+  <div class="book-fallback">
+    <p class="disclaimer">
+      If the calendar does not load, you can open it directly
+      <a href="https://calendly.com/asksamer/intro-call" target="_blank" rel="noopener noreferrer">on Calendly</a>.
+    </p>
+  </div>
 
   <nav>
     <a href="index.html">← Back to Home</a>
