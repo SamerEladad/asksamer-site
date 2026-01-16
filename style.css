@@ -58,6 +58,14 @@ body {
   100% { transform: translateY(0); }
 }
 
+/* DENSER FLAGS ON LARGER SCREENS */
+@media (min-width: 1024px) {
+  .flag-bg {
+    justify-content: center;
+    gap: 32px;
+  }
+}
+
 /* CONTENT CONTAINER */
 main {
   position: relative;
@@ -71,9 +79,17 @@ main {
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
+/* wider cards on tablets and up */
 @media (min-width: 768px) {
   main {
     max-width: 520px;
+  }
+}
+
+/* ~60–65% viewport width on desktop */
+@media (min-width: 1024px) {
+  main {
+    max-width: 65vw;
   }
 }
 
