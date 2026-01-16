@@ -58,14 +58,6 @@ body {
   100% { transform: translateY(0); }
 }
 
-/* DENSER FLAGS ON LARGER SCREENS */
-@media (min-width: 1024px) {
-  .flag-bg {
-    justify-content: center;
-    gap: 32px;
-  }
-}
-
 /* CONTENT CONTAINER */
 main {
   position: relative;
@@ -86,10 +78,10 @@ main {
   }
 }
 
-/* ~60–65% viewport width on desktop */
+/* ~70% viewport width on desktop */
 @media (min-width: 1024px) {
   main {
-    max-width: 65vw;
+    max-width: 70vw;
   }
 }
 
@@ -107,6 +99,12 @@ h1 {
   color: #4b5563;
   margin-bottom: 22px;
   direction: rtl;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 22px;
 }
 
 /* BOOK PAGE INTRO & CALENDLY */
@@ -307,14 +305,6 @@ body.home { background: #ffffff; }
 body.book { background: #f3f4f6; }
 body.links { background: #f9fafb; }
 body.legal { background: #fafafa; }
-
-/* Layout tweaks for non-home pages: content starts higher up */
-body.book,
-body.links,
-body.legal {
-  align-items: flex-start;
-  padding-top: 32px;
-}
 
 /* RESPONSIVE */
 @media (max-width: 480px) {
