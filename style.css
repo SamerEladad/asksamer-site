@@ -359,59 +359,6 @@ nav a:hover { background: #f3f4f6; }
     text-align: left;
   }
 
-  /* Make the grid purely 2 columns (no row tricks) */
-  body.book .booking-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 18px;
-    align-items: start;
-  }
-
-  /* Left column: stack content normally so no forced empty space */
-  body.book .booking-left {
-    grid-column: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 14px;            /* controls spacing between title and "What you get" */
-    align-self: start;
-  }
-
-  /* Center only the title/subtitle in the left column */
-  body.book .booking-head {
-    text-align: center;
-    margin: 0;
-  }
-
-  body.book .booking-head h1 {
-    margin-bottom: 8px;
-  }
-
-  body.book .booking-head .subtitle {
-    margin-bottom: 0;
-  }
-
-  /* Ensure the box doesn't add its own top spacing */
-  body.book .booking-box {
-    margin-top: 0;
-  }
-
-  /* Right column: calendly pinned to top */
-  body.book .booking-right {
-    grid-column: 2;
-    align-self: start;
-  }
-
-  body.book .calendly-wrapper {
-    margin-top: 0;
-  }
-
-  /* Slightly shorter desktop Calendly height */
-  body.book .calendly-inline-widget {
-    height: 860px;
-  }
-}
-
   body.book .booking-grid {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
