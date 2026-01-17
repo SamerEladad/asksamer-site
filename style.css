@@ -359,6 +359,7 @@ nav a:hover { background: #f3f4f6; }
     text-align: left;
   }
 
+  /* Make the grid purely 2 columns (no row tricks) */
   body.book .booking-grid {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
@@ -366,21 +367,92 @@ nav a:hover { background: #f3f4f6; }
     align-items: start;
   }
 
-  /* Left column rows */
-  body.book .booking-head { grid-column: 1; grid-row: 1; }
-  body.book .booking-info { grid-column: 1; grid-row: 2; }
-
-  /* Right column: calendly spans both rows and aligns to top */
-  body.book .booking-right { grid-column: 2; grid-row: 1 / span 2; }
-  body.book .calendly-wrapper { margin-top: 0; }
-
-  /* Desktop Calendly height to reduce internal scrolling */
-  body.book .calendly-inline-widget {
-    height: 920px;
+  /* Left column: stack content normally so no forced empty space */
+  body.book .booking-left {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 14px;            /* controls spacing between title and "What you get" */
+    align-self: start;
   }
 
-  /* Slightly tighter spacing */
-  body.book .subtitle { margin-bottom: 12px; }
+  /* Center only the title/subtitle in the left column */
+  body.book .booking-head {
+    text-align: center;
+    margin: 0;
+  }
+
+  body.book .booking-head h1 {
+    margin-bottom: 8px;
+  }
+
+  body.book .booking-head .subtitle {
+    margin-bottom: 0;
+  }
+
+  /* Ensure the box doesn't add its own top spacing */
+  body.book .booking-box {
+    margin-top: 0;
+  }
+
+  /* Right column: calendly pinned to top */
+  body.book .booking-right {
+    grid-column: 2;
+    align-self: start;
+  }
+
+  body.book .calendly-wrapper {
+    margin-top: 0;
+  }
+
+  /* Slightly shorter desktop Calendly height */
+  body.book .calendly-inline-widget {
+    height: 860px;
+  }
+}
+
+  body.book .booking-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  /* IMPORTANT: keep left column as a normal vertical stack (prevents the large “empty middle”) */
+  body.book .booking-left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;              /* reduces space between title block and info box */
+    align-items: stretch;
+  }
+
+  /* Center only the heading area within the left column */
+  body.book .booking-head {
+    text-align: center;
+  }
+
+  body.book .booking-head h1 {
+    margin-bottom: 8px;
+  }
+
+  body.book .booking-head .subtitle {
+    margin-bottom: 0;       /* prevents extra gap under subtitle */
+  }
+
+  /* Remove the default margin-top now that we control spacing with gap */
+  body.book .booking-box {
+    margin-top: 0;
+  }
+
+  /* Calendly on right starts from the very top */
+  body.book .booking-right { align-self: start; }
+  body.book .calendly-wrapper { margin-top: 0; }
+
+  /* Slightly shorter desktop Calendly height (reduces unnecessary bottom space) */
+  body.book .calendly-inline-widget {
+    height: 860px;
+  }
 }
 
 /* BACKGROUND COLORS */
@@ -389,9 +461,8 @@ body.book { background: #f3f4f6; }
 body.links { background: #f9fafb; }
 body.legal { background: #fafafa; }
 
-/* MOBILE HOME + LINKS: taller card + top/middle/bottom distribution */
+/* MOBILE HOME: taller card + top/middle/bottom distribution */
 @media (max-width: 480px) {
-  /* HOME */
   body.home main.home-card {
     min-height: 72vh;
     display: flex;
@@ -399,8 +470,12 @@ body.legal { background: #fafafa; }
     justify-content: space-between;
   }
 
-  body.home .home-top { margin-top: 4px; }
+  /* Top stays near the top */
+  body.home .home-top {
+    margin-top: 4px;
+  }
 
+  /* Middle becomes the empty space area, centered */
   body.home .home-middle {
     flex: 1;
     display: flex;
@@ -408,30 +483,14 @@ body.legal { background: #fafafa; }
     justify-content: center;
   }
 
-  body.home .home-bottom { margin-bottom: 2px; }
+  /* Bottom pack: buttons should sit right above social */
+  body.home .home-bottom {
+    margin-bottom: 2px;
+  }
 
   body.home nav.home-nav {
-    margin-bottom: 14px;
+    margin-bottom: 14px; /* keeps buttons directly above social */
   }
-
-  /* LINKS (mirrors HOME behavior) */
-  body.links main.links-card {
-    min-height: 72vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  body.links .links-top { margin-top: 4px; }
-
-  body.links .links-middle {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  body.links .links-bottom { margin-bottom: 2px; }
 
   /* keep your current padding + typography */
   main { padding: 24px 20px; }
