@@ -164,6 +164,7 @@ nav a:hover { background: #f3f4f6; }
   text-decoration: none;
   color: #111827;
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .social a:hover { opacity: 0.7; }
@@ -220,6 +221,7 @@ nav a:hover { background: #f3f4f6; }
   text-decoration: none;
   margin: 0 8px;
   transition: color 0.2s;
+  font-weight: 500;
 }
 
 .footer-links a:hover {
@@ -276,6 +278,7 @@ nav a:hover { background: #f3f4f6; }
   font-size: 0.9rem;
   transition: background-color 0.2s;
   color: #111827;
+  font-weight: 500;
 }
 
 .back-link:hover { background: #f3f4f6; }
@@ -316,6 +319,7 @@ nav a:hover { background: #f3f4f6; }
   padding: 14px;
 }
 
+/* unify booking text rhythm */
 .booking-title {
   font-size: 1.05rem;
   font-weight: 600;
@@ -323,12 +327,28 @@ nav a:hover { background: #f3f4f6; }
   margin-bottom: 10px;
 }
 
-.booking-list {
+.booking-title-sm {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.booking-list,
+.booking-steps {
   margin-left: 18px;
   margin-bottom: 12px;
   color: #4b5563;
   line-height: 1.6;
   font-size: 0.9rem;
+}
+
+.booking-steps li { margin-bottom: 6px; }
+
+.booking-divider {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 12px 0;
 }
 
 .booking-note {
@@ -338,56 +358,34 @@ nav a:hover { background: #f3f4f6; }
   margin-bottom: 12px;
 }
 
-.booking-note a {
+/* IMPORTANT: Do NOT globally override booking links (keeps styling consistent) */
+/* Social: no underline, black */
+.booking-box .social a {
+  text-decoration: none;
+  color: #111827;
+  font-weight: 500;
+}
+.booking-box .social a:hover { opacity: 0.7; }
+
+/* Contact email: underline */
+.booking-box .contact a {
+  text-decoration: underline;
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Footer links: gray, no underline */
+.booking-box .footer-links a {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+}
+.booking-box .footer-links a:hover {
   color: #111827;
   text-decoration: underline;
-  font-weight: 600;
 }
 
-/* Booking card typography normalization (keeps booking content consistent with site style) */
-.booking-box h2,
-.booking-box h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #111827;
-  margin: 0 0 10px 0;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.booking-box p {
-  font-size: 0.9rem;
-  color: #4b5563;
-  line-height: 1.6;
-  margin: 0 0 10px 0;
-}
-
-.booking-box ul,
-.booking-box ol {
-  margin-left: 18px;
-  margin-bottom: 12px;
-  color: #4b5563;
-  line-height: 1.6;
-  font-size: 0.9rem;
-}
-
-.booking-box li {
-  margin-bottom: 6px;
-}
-
-.booking-box hr {
-  border: 0;
-  border-top: 1px solid #e5e7eb;
-  margin: 12px 0;
-}
-
-.booking-box a {
-  color: #111827;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* Buttons inside booking bottom area should match nav button styling */
+/* Buttons inside booking area should match nav button styling */
 .booking-actions a {
   display: inline-block;
   font-size: 0.95rem;
@@ -401,9 +399,7 @@ nav a:hover { background: #f3f4f6; }
   background: transparent;
 }
 
-.booking-actions a:hover {
-  background: #f3f4f6;
-}
+.booking-actions a:hover { background: #f3f4f6; }
 
 /* Desktop: booking layout only (phone stays exactly the same) */
 @media (min-width: 1024px) {
@@ -417,63 +413,33 @@ nav a:hover { background: #f3f4f6; }
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     gap: 18px;
-    align-items: stretch;
+    align-items: start; /* fit content, do not stretch */
   }
 
-  /* Left column spans full height of the row so it can match Calendly bottom */
-  body.book .booking-left {
-    grid-column: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-  }
-
-  /* Title/subtitle centered inside left column */
   body.book .booking-head {
     text-align: center;
     margin: 0 0 12px 0;
   }
 
-  /* Keep the info section below the title and let it stretch */
   body.book .booking-info {
     margin-top: 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
   }
 
-  /* The left card stretches to fill remaining height */
+  /* Left box fits its content (no forced full height / no flex stacking) */
   body.book .booking-box {
     margin-top: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
     padding: 16px;
-    gap: 12px;
   }
 
-  /* Push the actions row (Back to Home / Privacy) and everything after it to the bottom of the left card */
-  body.book .booking-box .booking-actions {
-    margin-top: auto;
-  }
-
-  /* If a booking-bottom wrapper exists, keep it anchored too */
-  body.book .booking-box .booking-bottom {
-    margin-top: auto;
-  }
-
-  /* Right column: Calendly starts at top and spans full height */
   body.book .booking-right {
-    grid-column: 2;
-    align-self: stretch;
+    align-self: start;
   }
 
   body.book .calendly-wrapper {
     margin-top: 0;
-    height: 100%;
   }
 
-  /* Calendly height: tweak to eliminate tiny internal scroll */
+  /* Calendly height */
   body.book .calendly-inline-widget {
     height: 884px;
   }
@@ -523,4 +489,9 @@ body.legal { background: #fafafa; }
   /* keep your current padding + typography */
   main { padding: 24px 20px; }
   h1 { font-size: 2rem; }
+}
+
+/* Desktop-only helper (keeps mobile frozen) */
+@media (max-width: 1023px) {
+  .desktop-only { display: none; }
 }
