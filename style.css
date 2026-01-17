@@ -306,6 +306,31 @@ nav a:hover { background: #f3f4f6; }
   height: 980px;
 }
 
+@media (max-width: 480px) {
+  body.links main.links-card {
+    min-height: 72vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  body.links .links-top {
+    margin-top: 4px;
+  }
+
+  body.links .links-middle {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  body.links .links-bottom {
+    margin-bottom: 2px;
+  }
+}
+
 /* Booking info box */
 .booking-box {
   margin-top: 14px;
