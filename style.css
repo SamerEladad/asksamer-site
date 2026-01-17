@@ -292,7 +292,14 @@ nav a:hover { background: #f3f4f6; }
 /* BOOKING PAGE (mobile-first stack) */
 .book-card { max-width: 420px; }
 
-.booking-grid { display: block; }
+/* BOOKING PAGE (mobile-first stack) */
+.booking-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-right { order: 1; } /* Calendly first */
+.booking-left  { order: 2; } /* What you get second */
 .booking-left, .booking-right { width: 100%; }
 
 .calendly-wrapper {
@@ -306,7 +313,7 @@ nav a:hover { background: #f3f4f6; }
 /* Mobile height (same behavior you already liked) */
 .calendly-inline-widget {
   min-width: 320px;
-  height: 950px;
+  height: 990px;
 }
 
 /* Booking info box */
@@ -441,7 +448,7 @@ nav a:hover { background: #f3f4f6; }
 
   /* Calendly height */
   body.book .calendly-inline-widget {
-    height: 884px;
+    height: 800px;
   }
 
   body.book .subtitle {
