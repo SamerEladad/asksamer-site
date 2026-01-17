@@ -97,10 +97,15 @@ main {
     max-width: 1400px !important;
   }
 
-  /* Reduce needed scrolling by tightening the Calendly widget on desktop only.
-     This overrides any inline height in your HTML. */
+  /* Reduce needed scrolling by slightly scaling down Calendly content on desktop only,
+     and further reduce vertical scroll. */
   body.book .calendly-inline-widget {
-    height: 700px !important;
+    height: 640px !important;
+    transform: scale(0.92);
+    transform-origin: top center;
+  }
+  body.book .calendly-wrapper {
+    padding-bottom: 24px;
   }
 }
 
