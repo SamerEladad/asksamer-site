@@ -335,7 +335,7 @@ We achieve this WITHOUT changing HTML by flattening booking-left using display: 
 /* Mobile height (your current phone behavior) */
 .calendly-inline-widget {
   min-width: 320px;
-  height: 960px;
+  height: 900px;
 }
 
 /* Booking info box */
@@ -473,7 +473,7 @@ We must "un-flatten" booking-left and force columns explicitly.
 
   /* Desktop Calendly height (tune as needed) */
   body.book .calendly-inline-widget {
-    height: 875px;
+    height: 870px;
   }
 
   body.book .subtitle { margin-bottom: 0; }
