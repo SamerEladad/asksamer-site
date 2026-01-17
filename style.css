@@ -187,8 +187,12 @@ nav a:hover { background: #f3f4f6; }
 
 .contact a {
   color: #111827;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: 500;
+}
+
+.contact a:hover {
+  text-decoration: underline;
 }
 
 .contact.compact {
