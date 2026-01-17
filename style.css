@@ -164,7 +164,6 @@ nav a:hover { background: #f3f4f6; }
   text-decoration: none;
   color: #111827;
   font-size: 0.9rem;
-  font-weight: 500;
 }
 
 .social a:hover { opacity: 0.7; }
@@ -289,19 +288,42 @@ nav a:hover { background: #f3f4f6; }
   font-size: 0.85rem;
 }
 
-/* BOOKING PAGE (mobile-first stack) */
+/* ---------------------------- */
+/* BOOKING PAGE ORDERING RULES  */
+/* ---------------------------- */
+
+/* keep booking card narrower by default */
 .book-card { max-width: 420px; }
 
-/* BOOKING PAGE (mobile-first stack) */
+/* Desktop-only helper (keeps mobile frozen) */
+@media (max-width: 1023px) {
+  .desktop-only { display: none; }
+}
+
+/*
+MOBILE/TABLET (<=1023px):
+Wanted order:
+Card 1 (booking-head)
+Card 3 (Calendly)
+Card 2 (booking-info / what you get)
+We achieve this WITHOUT changing HTML by flattening booking-left using display: contents.
+*/
 .booking-grid {
   display: flex;
   flex-direction: column;
 }
 
-.booking-right { order: 1; } /* Calendly first */
-.booking-left  { order: 2; } /* What you get second */
+@media (max-width: 1023px) {
+  .booking-left { display: contents; }      /* flatten children into booking-grid */
+  .booking-head { order: 1; }
+  .booking-right { order: 2; }             /* Calendly */
+  .booking-info { order: 3; }              /* What you get */
+}
+
+/* booking columns base */
 .booking-left, .booking-right { width: 100%; }
 
+/* Calendly wrapper */
 .calendly-wrapper {
   margin-top: 8px;
   border-radius: 12px;
@@ -310,7 +332,7 @@ nav a:hover { background: #f3f4f6; }
   background: #f9fafb;
 }
 
-/* Mobile height (same behavior you already liked) */
+/* Mobile height (your current phone behavior) */
 .calendly-inline-widget {
   min-width: 320px;
   height: 990px;
@@ -365,8 +387,7 @@ nav a:hover { background: #f3f4f6; }
   margin-bottom: 12px;
 }
 
-/* IMPORTANT: Do NOT globally override booking links (keeps styling consistent) */
-/* Social: no underline, black */
+/* Keep booking link styling consistent with the rest of the site */
 .booking-box .social a {
   text-decoration: none;
   color: #111827;
@@ -374,14 +395,12 @@ nav a:hover { background: #f3f4f6; }
 }
 .booking-box .social a:hover { opacity: 0.7; }
 
-/* Contact email: underline */
 .booking-box .contact a {
   text-decoration: underline;
   color: #111827;
   font-weight: 500;
 }
 
-/* Footer links: gray, no underline */
 .booking-box .footer-links a {
   color: #6b7280;
   text-decoration: none;
@@ -392,7 +411,7 @@ nav a:hover { background: #f3f4f6; }
   text-decoration: underline;
 }
 
-/* Buttons inside booking area should match nav button styling */
+/* Buttons inside booking bottom area should match nav button styling */
 .booking-actions a {
   display: inline-block;
   font-size: 0.95rem;
@@ -405,10 +424,15 @@ nav a:hover { background: #f3f4f6; }
   transition: background-color 0.2s;
   background: transparent;
 }
-
 .booking-actions a:hover { background: #f3f4f6; }
 
-/* Desktop: booking layout only (phone stays exactly the same) */
+/*
+DESKTOP (>=1024px):
+Wanted layout:
+LEFT column: Card 1 then Card 2
+RIGHT column: Card 3 (Calendly)
+We must "un-flatten" booking-left and force columns explicitly.
+*/
 @media (min-width: 1024px) {
   body.book main.book-card {
     max-width: min(1200px, 92vw);
@@ -418,42 +442,41 @@ nav a:hover { background: #f3f4f6; }
 
   body.book .booking-grid {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 0.9fr 1.1fr; /* left content, right calendly */
     gap: 18px;
-    align-items: start; /* fit content, do not stretch */
+    align-items: start; /* fit content */
   }
+
+  /* IMPORTANT: undo mobile flattening */
+  body.book .booking-left { display: block; }
+  body.book .booking-left,
+  body.book .booking-right { width: auto; }
+
+  /* Hard-place columns to prevent Calendly ever jumping left */
+  body.book .booking-left { grid-column: 1; }
+  body.book .booking-right { grid-column: 2; }
 
   body.book .booking-head {
     text-align: center;
     margin: 0 0 12px 0;
   }
 
-  body.book .booking-info {
-    margin-top: 0;
-  }
+  body.book .booking-info { margin-top: 0; }
 
-  /* Left box fits its content (no forced full height / no flex stacking) */
+  /* Left box fits content (no forced full height) */
   body.book .booking-box {
     margin-top: 0;
     padding: 16px;
   }
 
-  body.book .booking-right {
-    align-self: start;
-  }
+  body.book .calendly-wrapper { margin-top: 0; }
 
-  body.book .calendly-wrapper {
-    margin-top: 0;
-  }
-
-  /* Calendly height */
+  /* Desktop Calendly height (tune as needed) */
   body.book .calendly-inline-widget {
     height: 800px;
   }
 
-  body.book .subtitle {
-    margin-bottom: 0;
-  }
+  body.book .subtitle { margin-bottom: 0; }
 }
 
 /* BACKGROUND COLORS */
@@ -471,12 +494,8 @@ body.legal { background: #fafafa; }
     justify-content: space-between;
   }
 
-  /* Top stays near the top */
-  body.home .home-top {
-    margin-top: 4px;
-  }
+  body.home .home-top { margin-top: 4px; }
 
-  /* Middle becomes the empty space area, centered */
   body.home .home-middle {
     flex: 1;
     display: flex;
@@ -484,21 +503,12 @@ body.legal { background: #fafafa; }
     justify-content: center;
   }
 
-  /* Bottom pack: buttons should sit right above social */
-  body.home .home-bottom {
-    margin-bottom: 2px;
-  }
+  body.home .home-bottom { margin-bottom: 2px; }
 
   body.home nav.home-nav {
-    margin-bottom: 14px; /* keeps buttons directly above social */
+    margin-bottom: 14px;
   }
 
-  /* keep your current padding + typography */
   main { padding: 24px 20px; }
   h1 { font-size: 2rem; }
-}
-
-/* Desktop-only helper (keeps mobile frozen) */
-@media (max-width: 1023px) {
-  .desktop-only { display: none; }
 }
