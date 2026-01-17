@@ -85,6 +85,13 @@ main {
   }
 }
 
+/* Book page: use more horizontal space on desktop only (mobile unchanged) */
+@media (min-width: 1024px) {
+  body.book main {
+    max-width: 92vw;
+  }
+}
+
 /* TYPOGRAPHY */
 h1 {
   font-size: 2.4rem;
