@@ -144,7 +144,7 @@ nav a {
   padding: 10px 20px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  transition: background 0.2s;
+  transition: background-color 0.2s;
 }
 
 nav a:hover { background: #f3f4f6; }
@@ -274,7 +274,7 @@ nav a:hover { background: #f3f4f6; }
   border-radius: 8px;
   text-decoration: none !important;
   font-size: 0.9rem;
-  transition: background 0.2s;
+  transition: background-color 0.2s;
   color: #111827;
 }
 
@@ -303,7 +303,7 @@ nav a:hover { background: #f3f4f6; }
 /* Mobile height (same behavior you already liked) */
 .calendly-inline-widget {
   min-width: 320px;
-  height: 980px;
+  height: 1000px;
 }
 
 /* Booking info box */
@@ -351,7 +351,7 @@ nav a:hover { background: #f3f4f6; }
   margin-bottom: 8px;
 }
 
-/* Desktop: 2-column booking layout (Calendly on RIGHT, starts at top) */
+/* Desktop: booking layout only (phone stays exactly the same) */
 @media (min-width: 1024px) {
   body.book main.book-card {
     max-width: min(1200px, 92vw);
@@ -359,46 +359,70 @@ nav a:hover { background: #f3f4f6; }
     text-align: left;
   }
 
+  /* 2 columns + 2 rows:
+     - Row 1: title area
+     - Row 2: left card stretches to match Calendly bottom
+     - Calendly spans both rows */
   body.book .booking-grid {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
+    grid-template-rows: auto 1fr;
     gap: 18px;
-    align-items: start;
-  }
-
-  /* IMPORTANT: keep left column as a normal vertical stack (prevents the large “empty middle”) */
-  body.book .booking-left {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;              /* reduces space between title block and info box */
     align-items: stretch;
   }
 
-  /* Center only the heading area within the left column */
+  /* Left column placements */
   body.book .booking-head {
-    text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+    text-align: center; /* center title/subtitle within left column */
+    margin: 0;
   }
 
-  body.book .booking-head h1 {
-    margin-bottom: 8px;
+  body.book .booking-info {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: stretch;
   }
 
-  body.book .booking-head .subtitle {
-    margin-bottom: 0;       /* prevents extra gap under subtitle */
-  }
-
-  /* Remove the default margin-top now that we control spacing with gap */
+  /* Make the left card fill the remaining height (so it ends at same bottom as Calendly) */
   body.book .booking-box {
+    margin-top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Visually fill the stretched left card by anchoring the last block to the bottom */
+  body.book .booking-box > :last-child {
+    margin-top: auto;
+  }
+
+  /* Right column: Calendly spans both rows and starts at top */
+  body.book .booking-right {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+
+  body.book .calendly-wrapper {
     margin-top: 0;
   }
 
-  /* Calendly on right starts from the very top */
-  body.book .booking-right { align-self: start; }
-  body.book .calendly-wrapper { margin-top: 0; }
+  /* Slightly reduce empty space under title */
+  body.book .subtitle {
+    margin-bottom: 10px;
+  }
 
-  /* Slightly shorter desktop Calendly height (reduces unnecessary bottom space) */
+  /* (Optional) tighten the spacing between title and the box by ensuring booking-info has no extra top margin */
+  body.book .booking-info {
+    margin-top: 0;
+  }
+
+  /* Calendly height (see next section) */
   body.book .calendly-inline-widget {
-    height: 860px;
+    height: 878px;
   }
 }
 
