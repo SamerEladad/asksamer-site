@@ -8,7 +8,10 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
   color: #111827;
-  min-height: 100vh;
+
+  /* Use dynamic viewport height on mobile to avoid “more space on top” */
+  min-height: 100svh;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,16 +69,12 @@ main {
 
 /* wider cards on tablets and up */
 @media (min-width: 768px) {
-  main {
-    max-width: 520px;
-  }
+  main { max-width: 520px; }
 }
 
 /* ~70% viewport width on desktop */
 @media (min-width: 1024px) {
-  main {
-    max-width: 70vw;
-  }
+  main { max-width: 70vw; }
 }
 
 /* TYPOGRAPHY */
@@ -111,7 +110,8 @@ h1 {
 
 /* DOTS ANIMATION */
 .dots {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 24px;
 }
@@ -147,9 +147,7 @@ nav a {
   transition: background 0.2s;
 }
 
-nav a:hover {
-  background: #f3f4f6;
-}
+nav a:hover { background: #f3f4f6; }
 
 /* SOCIAL ICONS */
 .social {
@@ -168,11 +166,9 @@ nav a:hover {
   font-size: 0.9rem;
 }
 
-.social a:hover {
-  opacity: 0.7;
-}
+.social a:hover { opacity: 0.7; }
 
-/* compact variants (used in booking right column) */
+/* compact variants (used in booking box) */
 .social.compact {
   margin-top: 14px;
   justify-content: flex-start;
@@ -282,9 +278,7 @@ nav a:hover {
   color: #111827;
 }
 
-.back-link:hover {
-  background: #f3f4f6;
-}
+.back-link:hover { background: #f3f4f6; }
 
 .back-link.compact {
   margin-top: 0;
@@ -292,8 +286,11 @@ nav a:hover {
   font-size: 0.85rem;
 }
 
-/* BOOKING PAGE (mobile-first: single column) */
+/* BOOKING PAGE (mobile-first stack) */
 .book-card { max-width: 420px; }
+
+.booking-grid { display: block; }
+.booking-left, .booking-right { width: 100%; }
 
 .calendly-wrapper {
   margin-top: 8px;
@@ -303,15 +300,13 @@ nav a:hover {
   background: #f9fafb;
 }
 
-/* Mobile height: keep your current phone experience */
+/* Mobile height (same behavior you already liked) */
 .calendly-inline-widget {
   min-width: 320px;
   height: 980px;
 }
 
-/* Booking grid */
-.booking-grid { display: block; }
-
+/* Booking info box */
 .booking-box {
   margin-top: 14px;
   text-align: left;
@@ -356,7 +351,7 @@ nav a:hover {
   margin-bottom: 8px;
 }
 
-/* Desktop: FORCE 2-column booking layout (INFO LEFT, CALENDLY RIGHT) */
+/* Desktop: 2-column booking layout (Calendly on RIGHT, starts at top) */
 @media (min-width: 1024px) {
   body.book main.book-card {
     max-width: min(1200px, 92vw);
@@ -364,32 +359,28 @@ nav a:hover {
     text-align: left;
   }
 
-  body.book .subtitle {
-    margin-bottom: 14px;
-  }
-
-  /* This is the critical fix: force grid on desktop (wins over any other rule) */
   body.book .booking-grid {
-    display: grid !important;
-    grid-template-columns: 0.85fr 1.15fr; /* right column (Calendly) is larger */
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
     gap: 18px;
     align-items: start;
   }
 
-  /* Ensure the Calendly column starts at the top */
-  body.book .booking-right .calendly-wrapper {
-    margin-top: 0 !important;
-  }
+  /* Left column rows */
+  body.book .booking-head { grid-column: 1; grid-row: 1; }
+  body.book .booking-info { grid-column: 1; grid-row: 2; }
 
-  /* Keep info column aligned cleanly */
-  body.book .booking-left .booking-box {
-    margin-top: 0;
-  }
+  /* Right column: calendly spans both rows and aligns to top */
+  body.book .booking-right { grid-column: 2; grid-row: 1 / span 2; }
+  body.book .calendly-wrapper { margin-top: 0; }
 
-  /* Desktop: make Calendly tall enough to avoid internal scrolling */
+  /* Desktop Calendly height to reduce internal scrolling */
   body.book .calendly-inline-widget {
-    height: 980px !important;
+    height: 920px;
   }
+
+  /* Slightly tighter spacing */
+  body.book .subtitle { margin-bottom: 12px; }
 }
 
 /* BACKGROUND COLORS */
@@ -398,23 +389,20 @@ body.book { background: #f3f4f6; }
 body.links { background: #f9fafb; }
 body.legal { background: #fafafa; }
 
-/* RESPONSIVE */
+/* MOBILE HOME: taller card + top/middle/bottom distribution */
 @media (max-width: 480px) {
-  main {
-    padding: 24px 20px;
-  }
-
-  /* Mobile home page: make landing card noticeably taller */
-  body.home main {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    min-height: 72vh;
+  body.home main.home-card {
+    min-height: 72vh;           /* ~20% taller feel */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* top / center / bottom */
   }
 
-  h1 {
-    font-size: 2rem;
-  }
+  body.home .home-top { margin-top: 4px; }
+  body.home .home-middle { margin-top: 0; }
+  body.home .home-bottom { margin-bottom: 2px; }
+
+  /* keep your current padding + typography */
+  main { padding: 24px 20px; }
+  h1 { font-size: 2rem; }
 }
