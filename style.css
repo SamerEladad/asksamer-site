@@ -78,34 +78,10 @@ main {
   }
 }
 
-/* default desktop sizing (all pages) */
+/* ~70% viewport width on desktop */
 @media (min-width: 1024px) {
   main {
     max-width: 70vw;
-  }
-}
-
-/* BOOK PAGE ONLY: use more of the desktop width (mobile unchanged) */
-@media (min-width: 1024px) {
-  body.book {
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-  }
-
-  body.book main {
-    width: 92vw !important;
-    max-width: 1400px !important;
-  }
-
-  /* Reduce needed scrolling by slightly scaling down Calendly content on desktop only,
-     and further reduce vertical scroll. */
-  body.book .calendly-inline-widget {
-    height: 640px !important;
-    transform: scale(0.92);
-    transform-origin: top center;
-  }
-  body.book .calendly-wrapper {
-    padding-bottom: 24px;
   }
 }
 
