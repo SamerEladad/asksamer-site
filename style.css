@@ -83,38 +83,6 @@ main {
   main {
     max-width: 70vw;
   }
-
-  /* Book page only: wider card + tighter vertical spacing (desktop only) */
-  body.book main {
-    max-width: min(92vw, 1200px);
-    padding: 24px 28px;
-  }
-
-  body.book .subtitle {
-    margin-bottom: 14px;
-  }
-
-  body.book .book-intro {
-    margin-bottom: 12px;
-  }
-
-  /* Calendly: reduce required scrolling on desktop only */
-  body.book .calendly-wrapper {
-    /* fixed viewport-friendly height; override any inline height indirectly via child */
-    max-height: 680px;
-  }
-
-  body.book .calendly-inline-widget {
-    height: 680px !important;
-  }
-
-  /* Slightly scale down Calendly UI to fit more above the fold */
-  body.book .calendly-inline-widget iframe {
-    transform: scale(0.92);
-    transform-origin: top left;
-    width: 108.7%;
-    height: 108.7%;
-  }
 }
 
 /* TYPOGRAPHY */
