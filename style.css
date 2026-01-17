@@ -392,15 +392,33 @@ body.legal { background: #fafafa; }
 /* MOBILE HOME: taller card + top/middle/bottom distribution */
 @media (max-width: 480px) {
   body.home main.home-card {
-    min-height: 72vh;           /* ~20% taller feel */
+    min-height: 72vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* top / center / bottom */
+    justify-content: space-between;
   }
 
-  body.home .home-top { margin-top: 4px; }
-  body.home .home-middle { margin-top: 0; }
-  body.home .home-bottom { margin-bottom: 2px; }
+  /* Top stays near the top */
+  body.home .home-top {
+    margin-top: 4px;
+  }
+
+  /* Middle becomes the empty space area, centered */
+  body.home .home-middle {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Bottom pack: buttons should sit right above social */
+  body.home .home-bottom {
+    margin-bottom: 2px;
+  }
+
+  body.home nav.home-nav {
+    margin-bottom: 14px; /* keeps buttons directly above social */
+  }
 
   /* keep your current padding + typography */
   main { padding: 24px 20px; }
