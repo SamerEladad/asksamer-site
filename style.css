@@ -468,7 +468,7 @@ We must "un-flatten" booking-left and force columns explicitly.
 
   /* Desktop Calendly height */
   body.book .calendly-inline-widget {
-    height: 869px;
+    height: 867px;
   }
 
   body.book .subtitle { margin-bottom: 0; }
