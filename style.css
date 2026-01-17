@@ -306,7 +306,7 @@ nav a:hover { background: #f3f4f6; }
 /* Mobile height (same behavior you already liked) */
 .calendly-inline-widget {
   min-width: 320px;
-  height: 1000px;
+  height: 990px;
 }
 
 /* Booking info box */
