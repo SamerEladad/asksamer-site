@@ -16,12 +16,15 @@
 
 <body class="book">
   <main class="book-card">
-    <h1>Book Your 1:1 Call</h1>
-    <div class="subtitle">Take your first step toward Germany.</div>
+    <div class="booking-layout">
+      <!-- LEFT (desktop) / TOP (mobile): Title + subtitle -->
+      <section class="booking-copy" aria-label="Booking headline">
+        <h1>Book Your 1:1 Call</h1>
+        <div class="subtitle">Take your first step toward Germany.</div>
+      </section>
 
-    <div class="booking-grid">
-      <!-- LEFT: Calendly -->
-      <section class="booking-left" aria-label="Booking calendar">
+      <!-- RIGHT (desktop) / MIDDLE (mobile): Calendly -->
+      <section class="booking-cal" aria-label="Booking calendar">
         <div class="calendly-wrapper">
           <div
             class="calendly-inline-widget"
@@ -30,8 +33,8 @@
         </div>
       </section>
 
-      <!-- RIGHT: Everything that used to be below Calendly -->
-      <aside class="booking-right" aria-label="Booking details">
+      <!-- LEFT (desktop) / BOTTOM (mobile): What you get + everything else -->
+      <aside class="booking-details" aria-label="Booking details">
         <div class="booking-box">
           <h2 class="booking-title">What you get</h2>
           <ul class="booking-list">

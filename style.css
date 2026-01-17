@@ -356,7 +356,7 @@ nav a:hover {
   margin-bottom: 8px;
 }
 
-/* Desktop: 2-column booking layout */
+/* Desktop: 2-column booking layout (INFO LEFT, CALENDLY RIGHT) */
 @media (min-width: 1024px) {
   body.book main.book-card {
     max-width: min(1200px, 92vw);
@@ -367,18 +367,25 @@ nav a:hover {
     margin-bottom: 14px;
   }
 
+  /* IMPORTANT: switch to 2 columns and place calendly on the RIGHT */
   body.book .booking-grid {
     display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
+    grid-template-columns: 0.9fr 1.1fr; /* left info, right calendly (bigger) */
     gap: 18px;
     align-items: start;
   }
 
-  body.book .booking-box {
-    margin-top: 8px;
+  /* Remove top margin so calendly starts from top of the card */
+  body.book .booking-left .calendly-wrapper {
+    margin-top: 0;
   }
 
-  /* Desktop: set Calendly tall enough to avoid internal iframe scrolling */
+  /* Keep booking info visually aligned */
+  body.book .booking-right .booking-box {
+    margin-top: 0;
+  }
+
+  /* Give Calendly more room; height tuned to reduce iframe scrolling */
   body.book .calendly-inline-widget {
     height: 900px;
   }
@@ -394,6 +401,12 @@ body.legal { background: #fafafa; }
 @media (max-width: 480px) {
   main {
     padding: 24px 20px;
+  }
+
+  /* Mobile home page: make the card ~20% taller (only landing page) */
+  body.home main {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   h1 {
