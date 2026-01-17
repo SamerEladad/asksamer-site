@@ -309,7 +309,7 @@ nav a:hover {
   height: 980px;
 }
 
-/* Booking right column content */
+/* Booking grid */
 .booking-grid { display: block; }
 
 .booking-box {
@@ -356,38 +356,39 @@ nav a:hover {
   margin-bottom: 8px;
 }
 
-/* Desktop: 2-column booking layout (INFO LEFT, CALENDLY RIGHT) */
+/* Desktop: FORCE 2-column booking layout (INFO LEFT, CALENDLY RIGHT) */
 @media (min-width: 1024px) {
   body.book main.book-card {
     max-width: min(1200px, 92vw);
     padding: 24px 26px;
+    text-align: left;
   }
 
   body.book .subtitle {
     margin-bottom: 14px;
   }
 
-  /* IMPORTANT: switch to 2 columns and place calendly on the RIGHT */
+  /* This is the critical fix: force grid on desktop (wins over any other rule) */
   body.book .booking-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr; /* left info, right calendly (bigger) */
+    display: grid !important;
+    grid-template-columns: 0.85fr 1.15fr; /* right column (Calendly) is larger */
     gap: 18px;
     align-items: start;
   }
 
-  /* Remove top margin so calendly starts from top of the card */
-  body.book .booking-left .calendly-wrapper {
+  /* Ensure the Calendly column starts at the top */
+  body.book .booking-right .calendly-wrapper {
+    margin-top: 0 !important;
+  }
+
+  /* Keep info column aligned cleanly */
+  body.book .booking-left .booking-box {
     margin-top: 0;
   }
 
-  /* Keep booking info visually aligned */
-  body.book .booking-right .booking-box {
-    margin-top: 0;
-  }
-
-  /* Give Calendly more room; height tuned to reduce iframe scrolling */
+  /* Desktop: make Calendly tall enough to avoid internal scrolling */
   body.book .calendly-inline-widget {
-    height: 900px;
+    height: 980px !important;
   }
 }
 
@@ -403,10 +404,14 @@ body.legal { background: #fafafa; }
     padding: 24px 20px;
   }
 
-  /* Mobile home page: make the card ~20% taller (only landing page) */
+  /* Mobile home page: make landing card noticeably taller */
   body.home main {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 72vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   h1 {
