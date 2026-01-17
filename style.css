@@ -413,7 +413,9 @@ We achieve this WITHOUT changing HTML by flattening booking-left using display: 
 
 /* Buttons inside booking bottom area should match nav button styling */
 .booking-actions a {
-  display: inline-block;
+  display: block;
+  width: 100%;
+  text-align: center;
   font-size: 0.95rem;
   color: #111827;
   text-decoration: none;
