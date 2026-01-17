@@ -85,21 +85,22 @@ main {
   }
 }
 
-/* BOOK PAGE ONLY: wider card on desktop, without touching mobile */
+/* BOOK PAGE ONLY: use more of the desktop width (mobile unchanged) */
 @media (min-width: 1024px) {
   body.book {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
   }
 
   body.book main {
-    max-width: 82vw; /* book page uses more of the screen */
+    width: 92vw !important;
+    max-width: 1400px !important;
   }
 
   /* Reduce needed scrolling by tightening the Calendly widget on desktop only.
-     This overrides the inline height in your HTML. */
+     This overrides any inline height in your HTML. */
   body.book .calendly-inline-widget {
-    height: 740px !important;
+    height: 700px !important;
   }
 }
 
